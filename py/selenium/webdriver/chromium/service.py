@@ -18,6 +18,11 @@ import typing
 
 from selenium.types import SubprocessStdAlias
 from selenium.webdriver.common import service
+from typing import List
+from typing import Mapping
+from typing import Optional
+
+
 
 
 class ChromiumService(service.Service):
@@ -35,9 +40,9 @@ class ChromiumService(service.Service):
         self,
         executable_path: str = None,
         port: int = 0,
-        service_args: typing.Optional[typing.List[str]] = None,
+        service_args: Optional[List[str]] = None,
         log_output: SubprocessStdAlias = None,
-        env: typing.Optional[typing.Mapping[str, str]] = None,
+        env: Optional[Mapping[str, str]] = None,
         **kwargs,
     ) -> None:
         self.service_args = service_args or []
@@ -56,5 +61,5 @@ class ChromiumService(service.Service):
             **kwargs,
         )
 
-    def command_line_args(self) -> typing.List[str]:
+    def command_line_args(self) -> List[str]:
         return [f"--port={self.port}"] + self.service_args

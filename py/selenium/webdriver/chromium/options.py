@@ -26,7 +26,7 @@ from selenium.webdriver.common.options import ArgOptions
 
 
 class ChromiumOptions(ArgOptions):
-    KEY = "goog:chromeOptions"
+    KEY:str = "goog:chromeOptions"
 
     def __init__(self) -> None:
         super().__init__()

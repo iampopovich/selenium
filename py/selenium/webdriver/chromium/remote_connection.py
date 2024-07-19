@@ -20,12 +20,12 @@ from selenium.webdriver.remote.remote_connection import RemoteConnection
 
 class ChromiumRemoteConnection(RemoteConnection):
     def __init__(
-        self,
-        remote_server_addr: str,
-        vendor_prefix: str,
-        browser_name: str,
-        keep_alive: bool = True,
-        ignore_proxy: bool = False,
+      self,
+      remote_server_addr: str,
+      vendor_prefix: str,
+      browser_name: str,
+      keep_alive: bool = True,
+      ignore_proxy: bool = False,
     ) -> None:
         super().__init__(remote_server_addr, keep_alive, ignore_proxy)
         self.browser_name = browser_name
@@ -33,7 +33,7 @@ class ChromiumRemoteConnection(RemoteConnection):
         for key, value in commands.items():
             self._commands[key] = value
 
-    def _remote_commands(self, vendor_prefix):
+    def _remote_commands(self, vendor_prefix: str) -> dict[str, tuple[str, str]]:
         remote_commands = {
             "launchApp": ("POST", "/session/$sessionId/chromium/launch_app"),
             "setPermissions": ("POST", "/session/$sessionId/permissions"),
