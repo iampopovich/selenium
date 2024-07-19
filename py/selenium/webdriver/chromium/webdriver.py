@@ -15,7 +15,7 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from typing import Any
+from typing import Any, Dict
 
 from selenium.webdriver.chromium.remote_connection import ChromiumRemoteConnection
 from selenium.webdriver.common.driver_finder import DriverFinder
@@ -85,7 +85,7 @@ class ChromiumDriver(RemoteWebDriver):
         """
         return self.execute("getNetworkConditions")["value"]
 
-    def set_network_conditions(self, **network_conditions: dict[str, dict[str, Any]]) -> None:
+    def set_network_conditions(self, **network_conditions: Dict[str, Dict[str, Any]]) -> None:
         """Sets Chromium network emulation settings.
 
         :Args:

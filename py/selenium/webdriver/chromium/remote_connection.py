@@ -14,6 +14,7 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
+from typing import Dict
 
 from selenium.webdriver.remote.remote_connection import RemoteConnection
 
@@ -33,7 +34,7 @@ class ChromiumRemoteConnection(RemoteConnection):
         for key, value in commands.items():
             self._commands[key] = value
 
-    def _remote_commands(self, vendor_prefix: str) -> dict[str, tuple[str, str]]:
+    def _remote_commands(self, vendor_prefix: str) -> Dict[str, tuple[str, str]]:
         remote_commands = {
             "launchApp": ("POST", "/session/$sessionId/chromium/launch_app"),
             "setPermissions": ("POST", "/session/$sessionId/permissions"),
