@@ -15,7 +15,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from typing import Optional, Any, Dict
+from typing import Any
+from typing import Dict
+from typing import Optional
 
 from selenium.common.exceptions import InvalidArgumentException
 from selenium.webdriver.remote.webelement import WebElement
@@ -37,12 +39,12 @@ class PointerInput(InputDevice):
         self.name = name
 
     def create_pointer_move(
-      self,
-      duration: int = DEFAULT_MOVE_DURATION,
-      x: int = 0,
-      y: int = 0,
-      origin: Optional[WebElement] = None,
-      **kwargs,
+        self,
+        duration: int = DEFAULT_MOVE_DURATION,
+        x: int = 0,
+        y: int = 0,
+        origin: Optional[WebElement] = None,
+        **kwargs,
     ):
         action = {"type": "pointerMove", "duration": duration, "x": x, "y": y, **kwargs}
         if isinstance(origin, WebElement):

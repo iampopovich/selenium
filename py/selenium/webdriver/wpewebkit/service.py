@@ -15,7 +15,9 @@
 # specific language governing permissions and limitations
 # under the License.
 import shutil
-from typing import Optional, Mapping, List
+from typing import List
+from typing import Mapping
+from typing import Optional
 
 from selenium.webdriver.common import service
 
@@ -34,13 +36,13 @@ class Service(service.Service):
     """
 
     def __init__(
-      self,
-      executable_path: str = DEFAULT_EXECUTABLE_PATH,
-      port: int = 0,
-      log_output: Optional[str] = None,
-      service_args: Optional[List[str]] = None,
-      env: Optional[Mapping[str, str]] = None,
-      **kwargs,
+        self,
+        executable_path: str = DEFAULT_EXECUTABLE_PATH,
+        port: int = 0,
+        log_output: Optional[str] = None,
+        service_args: Optional[List[str]] = None,
+        env: Optional[Mapping[str, str]] = None,
+        **kwargs,
     ):
         self.service_args = service_args or []
         super().__init__(

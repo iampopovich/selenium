@@ -21,7 +21,7 @@ from selenium.webdriver.chromium.remote_connection import ChromiumRemoteConnecti
 
 
 class ChromeRemoteConnection(ChromiumRemoteConnection):
-    browser_name:str = DesiredCapabilities.CHROME["browserName"]
+    browser_name: str = DesiredCapabilities.CHROME["browserName"]
 
     def __init__(
         self,

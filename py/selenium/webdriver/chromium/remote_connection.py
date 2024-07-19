@@ -20,12 +20,12 @@ from selenium.webdriver.remote.remote_connection import RemoteConnection
 
 class ChromiumRemoteConnection(RemoteConnection):
     def __init__(
-      self,
-      remote_server_addr: str,
-      vendor_prefix: str,
-      browser_name: str,
-      keep_alive: bool = True,
-      ignore_proxy: bool = False,
+        self,
+        remote_server_addr: str,
+        vendor_prefix: str,
+        browser_name: str,
+        keep_alive: bool = True,
+        ignore_proxy: bool = False,
     ) -> None:
         super().__init__(remote_server_addr, keep_alive, ignore_proxy)
         self.browser_name = browser_name

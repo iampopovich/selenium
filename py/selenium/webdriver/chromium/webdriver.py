@@ -15,24 +15,26 @@
 # specific language governing permissions and limitations
 # under the License.
 
+from typing import Any
+
 from selenium.webdriver.chromium.remote_connection import ChromiumRemoteConnection
 from selenium.webdriver.common.driver_finder import DriverFinder
 from selenium.webdriver.common.options import ArgOptions
 from selenium.webdriver.common.service import Service
 from selenium.webdriver.remote.webdriver import WebDriver as RemoteWebDriver
-from typing import Any
+
 
 class ChromiumDriver(RemoteWebDriver):
     """Controls the WebDriver instance of ChromiumDriver and allows you to
     drive the browser."""
 
     def __init__(
-      self,
-      browser_name: str = None,
-      vendor_prefix: str = None,
-      options: ArgOptions = ArgOptions(),
-      service: Service = None,
-      keep_alive: bool = True,
+        self,
+        browser_name: str = None,
+        vendor_prefix: str = None,
+        options: ArgOptions = ArgOptions(),
+        service: Service = None,
+        keep_alive: bool = True,
     ) -> None:
         """Creates a new WebDriver instance of the ChromiumDriver. Starts the
         service and then creates new WebDriver instance of ChromiumDriver.
@@ -83,7 +85,7 @@ class ChromiumDriver(RemoteWebDriver):
         """
         return self.execute("getNetworkConditions")["value"]
 
-    def set_network_conditions(self, **network_conditions:dict[str, dict[str, Any]]) -> None:
+    def set_network_conditions(self, **network_conditions: dict[str, dict[str, Any]]) -> None:
         """Sets Chromium network emulation settings.
 
         :Args:

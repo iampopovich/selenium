@@ -29,10 +29,10 @@ class KeyInput(InputDevice):
     def encode(self) -> dict:
         return {"type": self.type, "id": self.name, "actions": [acts.encode() for acts in self.actions]}
 
-    def create_key_down(self, key:str) -> None:
+    def create_key_down(self, key: str) -> None:
         self.add_action(TypingInteraction(self, "keyDown", key))
 
-    def create_key_up(self, key:str) -> None:
+    def create_key_up(self, key: str) -> None:
         self.add_action(TypingInteraction(self, "keyUp", key))
 
     def create_pause(self, pause_duration: float = 0) -> None:
@@ -40,7 +40,7 @@ class KeyInput(InputDevice):
 
 
 class TypingInteraction(Interaction):
-    def __init__(self, source:str, type_, key:str) -> None:
+    def __init__(self, source: str, type_, key: str) -> None:
         super().__init__(source)
         self.type = type_
         self.key = key
