@@ -20,6 +20,7 @@ from typing import Optional
 from typing import Union
 
 from selenium.webdriver.remote.command import Command
+from selenium.webdriver.remote.webdriver import WebDriver
 
 from . import interaction
 from .key_actions import KeyActions
@@ -33,7 +34,7 @@ from .wheel_input import WheelInput
 class ActionBuilder:
     def __init__(
         self,
-        driver,
+        driver: WebDriver,
         mouse: Optional[PointerInput] = None,
         wheel: Optional[WheelInput] = None,
         keyboard: Optional[KeyInput] = None,

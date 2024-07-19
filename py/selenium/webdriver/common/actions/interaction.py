@@ -38,7 +38,7 @@ class Interaction:
 
 
 class Pause(Interaction):
-    def __init__(self, source, duration: float = 0) -> None:
+    def __init__(self, source:str, duration: float = 0) -> None:
         super().__init__(source)
         self.duration = duration
 

@@ -48,7 +48,7 @@ class KeyActions(Interaction):
             self.key_up(letter)
         return self
 
-    def _key_action(self, action: str, letter) -> KeyActions:
+    def _key_action(self, action: str, letter:str) -> KeyActions:
         meth = getattr(self.source, action)
         meth(letter)
         return self

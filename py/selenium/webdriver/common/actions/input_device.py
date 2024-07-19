@@ -33,5 +33,5 @@ class InputDevice:
     def clear_actions(self):
         self.actions = []
 
-    def create_pause(self, duration: int = 0):
+    def create_pause(self, duration: float = 0):
         pass

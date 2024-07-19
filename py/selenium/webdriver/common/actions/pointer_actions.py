@@ -39,7 +39,7 @@ class PointerActions(Interaction):
 
     def pointer_down(
         self,
-        button=MouseButton.LEFT,
+        button:int=MouseButton.LEFT,
         width=None,
         height=None,
         pressure=None,
@@ -65,15 +65,15 @@ class PointerActions(Interaction):
         )
         return self
 
-    def pointer_up(self, button=MouseButton.LEFT):
+    def pointer_up(self, button:int=MouseButton.LEFT):
         self._button_action("create_pointer_up", button=button)
         return self
 
     def move_to(
         self,
-        element,
-        x=0,
-        y=0,
+        element:WebElement,
+        x:int=0,
+        y:int=0,
         width=None,
         height=None,
         pressure=None,
