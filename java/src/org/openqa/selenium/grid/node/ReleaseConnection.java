@@ -1,4 +1,3 @@
-// <copyright file="RemoteReference.cs" company="Selenium Committers">
 // Licensed to the Software Freedom Conservancy (SFC) under one
 // or more contributor license agreements.  See the NOTICE file
 // distributed with this work for additional information
@@ -15,20 +14,30 @@
 // KIND, either express or implied.  See the License for the
 // specific language governing permissions and limitations
 // under the License.
-// </copyright>
 
-#nullable enable
+package org.openqa.selenium.grid.node;
 
-namespace OpenQA.Selenium.BiDi.Modules.Script;
+import java.io.UncheckedIOException;
+import org.openqa.selenium.internal.Require;
+import org.openqa.selenium.remote.SessionId;
+import org.openqa.selenium.remote.http.HttpHandler;
+import org.openqa.selenium.remote.http.HttpRequest;
+import org.openqa.selenium.remote.http.HttpResponse;
 
-public abstract record RemoteReference : LocalValue;
+class ReleaseConnection implements HttpHandler {
 
-public record SharedReference(string SharedId) : RemoteReference
-{
-    public Handle? Handle { get; set; }
-}
+  private final Node node;
+  private final SessionId id;
 
-public record RemoteObjectReference(Handle Handle) : RemoteReference
-{
-    public string? SharedId { get; set; }
+  ReleaseConnection(Node node, SessionId id) {
+    this.node = Require.nonNull("Node", node);
+    this.id = Require.nonNull("Session id", id);
+  }
+
+  @Override
+  public HttpResponse execute(HttpRequest req) throws UncheckedIOException {
+    node.releaseConnection(id);
+
+    return new HttpResponse().setStatus(200);
+  }
 }

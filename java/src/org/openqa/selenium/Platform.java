@@ -18,6 +18,7 @@
 package org.openqa.selenium;
 
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -31,7 +32,7 @@ import java.util.regex.Pattern;
 public enum Platform {
 
   /** Never returned, but can be used to request a browser running on any version of Windows. */
-  WINDOWS("") {
+  WINDOWS("windows") {
     @Override
     public Platform family() {
       return null;
@@ -301,6 +302,18 @@ public enum Platform {
     }
   },
 
+  SEQUOIA("sequoia", "os x 15.0", "macos 15.0") {
+    @Override
+    public Platform family() {
+      return MAC;
+    }
+
+    @Override
+    public String toString() {
+      return "macOS 15.0";
+    }
+  },
+
   /** Many platforms have UNIX traits, amongst them LINUX, Solaris and BSD. */
   UNIX("solaris", "bsd") {
     @Override
@@ -414,7 +427,7 @@ public enum Platform {
    * @return the most likely platform based on given operating system name and version
    */
   public static Platform extractFromSysProperty(String osName, String osVersion) {
-    osName = osName.toLowerCase();
+    osName = osName.toLowerCase(Locale.ENGLISH);
     // os.name for android is linux
     if ("dalvik".equalsIgnoreCase(System.getProperty("java.vm.name"))) {
       return Platform.ANDROID;
@@ -434,7 +447,7 @@ public enum Platform {
         if ("".equals(matcher)) {
           continue;
         }
-        matcher = matcher.toLowerCase();
+        matcher = matcher.toLowerCase(Locale.ENGLISH);
         if (os.isExactMatch(osName, matcher)) {
           return os;
         }

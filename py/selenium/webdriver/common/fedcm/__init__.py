@@ -14,25 +14,3 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-
-from distutils.command.install import INSTALL_SCHEMES
-from os.path import dirname, join, abspath
-from setuptools import setup
-from setuptools.command.install import install
-from setuptools_rust import Binding, RustExtension
-
-
-for scheme in INSTALL_SCHEMES.values():
-    scheme['data'] = scheme['purelib']
-
-setup_args = {
-    'cmdclass': {'install': install},
-    'rust_extensions': [
-        RustExtension(
-            {"selenium-manager": "selenium.webdriver.common.selenium-manager"},
-            binding=Binding.Exec
-        )
-    ],
-}
-
-setup(**setup_args)
