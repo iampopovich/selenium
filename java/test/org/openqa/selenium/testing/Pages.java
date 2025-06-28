@@ -44,7 +44,6 @@ public class Pages {
   public String formSelectionPage;
   public String framesetPage;
   public String grandchildPage;
-  public String html5Page;
   public String iframePage;
   public String javascriptEnhancedForm;
   public String javascriptPage;
@@ -110,7 +109,6 @@ public class Pages {
     formSelectionPage = appServer.whereIs("formSelectionPage.html");
     framesetPage = appServer.whereIs("frameset.html");
     grandchildPage = appServer.whereIs("child/grandchild/grandchildPage.html");
-    html5Page = appServer.whereIs("html5Page.html");
     iframePage = appServer.whereIs("iframes.html");
     javascriptEnhancedForm = appServer.whereIs("javascriptEnhancedForm.html");
     javascriptPage = appServer.whereIs("javascriptPage.html");

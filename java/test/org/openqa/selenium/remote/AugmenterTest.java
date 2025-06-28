@@ -40,7 +40,7 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.html5.WebStorage;
+
 import org.openqa.selenium.internal.Require;
 import org.openqa.selenium.support.decorators.Decorated;
 import org.openqa.selenium.support.decorators.WebDriverDecorator;
@@ -91,7 +91,7 @@ class AugmenterTest {
         getAugmenter()
             .addDriverAugmentation("magic.numbers", HasMagicNumbers.class, (c, exe) -> () -> 42)
             .augment(driver);
-    assertThat(returned).isNotInstanceOf(WebStorage.class);
+    assertThat(returned).isNotInstanceOf(MyInterface.class);
   }
 
   @Test
