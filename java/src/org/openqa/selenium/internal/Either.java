@@ -21,15 +21,13 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.function.Function;
 import java.util.stream.Stream;
-import org.jspecify.annotations.NullMarked;
 import org.jspecify.annotations.Nullable;
 
-@NullMarked
 public class Either<A extends @Nullable Object, B extends @Nullable Object> implements Iterable<B> {
-  private final A left;
-  private final B right;
+  private final @Nullable A left;
+  private final @Nullable B right;
 
-  private Either(A a, B b) {
+  private Either(@Nullable A a, @Nullable B b) {
     left = a;
     right = b;
   }
@@ -50,11 +48,11 @@ public class Either<A extends @Nullable Object, B extends @Nullable Object> impl
     return right != null;
   }
 
-  public A left() {
+  public @Nullable A left() {
     return left;
   }
 
-  public B right() {
+  public @Nullable B right() {
     return right;
   }
 

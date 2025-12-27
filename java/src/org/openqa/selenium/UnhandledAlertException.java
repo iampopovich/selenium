@@ -20,16 +20,17 @@ package org.openqa.selenium;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import org.jspecify.annotations.Nullable;
 
 public class UnhandledAlertException extends WebDriverException {
 
-  private final String alertText;
+  private final @Nullable String alertText;
 
   public UnhandledAlertException(String message) {
     this(message, null);
   }
 
-  public UnhandledAlertException(String message, String alertText) {
+  public UnhandledAlertException(String message, @Nullable String alertText) {
     super(message + ": " + alertText);
     this.alertText = alertText;
   }
@@ -37,7 +38,7 @@ public class UnhandledAlertException extends WebDriverException {
   /**
    * @return the text of the unhandled alert.
    */
-  public String getAlertText() {
+  public @Nullable String getAlertText() {
     return alertText;
   }
 
