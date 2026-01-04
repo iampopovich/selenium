@@ -438,8 +438,7 @@ public class ModuleGenerator {
           }
 
           name =
-              Arrays.stream(Arrays.copyOfRange(segments, 3, segments.length))
-                  .collect(Collectors.joining("/"));
+            String.join("/", Arrays.copyOfRange(segments, 3, segments.length));
         }
 
         name = name.replace("/", ".");

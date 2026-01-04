@@ -550,7 +550,7 @@ public class LocalNodeRegistry implements NodeRegistry {
     readLock.lock();
     try {
       return (int)
-          (model.getSnapshot().stream().flatMap(status -> status.getSlots().stream()).count()
+          (model.getSnapshot().stream().mapToLong(status -> status.getSlots().size()).sum()
               - getActiveSlots());
     } finally {
       readLock.unlock();
