@@ -273,7 +273,7 @@ public class Cookie implements Serializable {
         + "="
         + value
         + (expiry == null ? "" : "; expires=" + sdf.format(expiry))
-        + ("".equals(path) ? "" : "; path=" + path)
+        + (path.isEmpty() ? "" : "; path=" + path)
         + (domain == null ? "" : "; domain=" + domain)
         + (isSecure ? ";secure;" : "")
         + (sameSite == null ? "" : "; sameSite=" + sameSite);
