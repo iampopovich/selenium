@@ -260,7 +260,7 @@ public class GraphqlHandler implements HttpHandler, AutoCloseable {
     @Override
     public int weigh(String key, CompletableFuture<PreparsedDocumentEntry> value) {
       // Estimate memory usage including CompletableFuture overhead
-      long keyWeight = key.length() * 2; // UTF-16 encoding
+      long keyWeight = key.length() * 2L; // UTF-16 encoding
       long futureOverhead = 200; // Estimated CompletableFuture overhead
       long documentOverhead = 500; // Estimated PreparsedDocumentEntry overhead
 
