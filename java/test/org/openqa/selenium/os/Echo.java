@@ -27,7 +27,7 @@ class Echo {
       System.exit(1);
     }
 
-    String message = Arrays.stream(args).collect(Collectors.joining(" "));
+    String message = String.join(" ", args);
     System.out.println(message);
   }
 }
