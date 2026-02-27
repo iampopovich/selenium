@@ -44,8 +44,6 @@ public class UnhandledAlertException extends WebDriverException {
   // Used for serialising. Some of the drivers return the alert text like this.
   @Beta
   public Map<String, String> getAlert() {
-    HashMap<String, String> toReturn = new HashMap<>();
-    toReturn.put("text", getAlertText());
-    return Collections.unmodifiableMap(toReturn);
+    return Map.of("text", getAlertText());
   }
 }
