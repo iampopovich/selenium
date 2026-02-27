@@ -89,8 +89,8 @@ public class InternetExplorerDriverService extends DriverService {
         executable,
         port,
         timeout,
-        unmodifiableList(new ArrayList<>(args)),
-        unmodifiableMap(new HashMap<>(environment)));
+      List.copyOf(args),
+      Map.copyOf(environment));
   }
 
   public String getDriverName() {
