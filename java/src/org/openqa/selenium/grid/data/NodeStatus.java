@@ -61,7 +61,7 @@ public class NodeStatus {
     this.maxSessionCount =
         Require.positive(
             "Max session count", maxSessionCount, "Make sure that a driver is available on $PATH");
-    this.slots = unmodifiableSet(new HashSet<>(Require.nonNull("Slots", slots)));
+    this.slots = Set.copyOf(Require.nonNull("Slots", slots));
     this.availability = Require.nonNull("Availability", availability);
     this.heartbeatPeriod = heartbeatPeriod;
     this.sessionTimeout = sessionTimeout;
