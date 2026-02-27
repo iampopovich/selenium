@@ -51,7 +51,7 @@ public class Command<X> {
       boolean sendsResponse) {
     this.method = Require.nonNull("Method name", method);
     this.params =
-        Collections.unmodifiableMap(new HashMap<>(Require.nonNull("Command parameters", params)));
+      Map.copyOf(Require.nonNull("Command parameters", params));
     this.mapper = Require.nonNull("Mapper for result", mapper);
     this.sendsResponse = sendsResponse;
   }
