@@ -247,7 +247,7 @@ public class ChromiumOptions<T extends ChromiumOptions<?>>
       options.put("binary", binary);
     }
 
-    options.put("args", unmodifiableList(new ArrayList<>(args)));
+    options.put("args", List.copyOf(args));
 
     options.put(
         "extensions",
