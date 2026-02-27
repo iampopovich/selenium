@@ -39,7 +39,7 @@ public class CreateSessionRequest {
   public CreateSessionRequest(
       Set<Dialect> downstreamDialects, Capabilities capabilities, Map<String, Object> metadata) {
     this.downstreamDialects =
-        unmodifiableSet(new HashSet<>(Require.nonNull("Downstream dialects", downstreamDialects)));
+      Set.copyOf(Require.nonNull("Downstream dialects", downstreamDialects));
     this.capabilities = ImmutableCapabilities.copyOf(Require.nonNull("Capabilities", capabilities));
     this.metadata = Map.copyOf(Require.nonNull("Metadata", metadata));
   }
