@@ -449,7 +449,7 @@ public class FirefoxOptions extends AbstractDriverOptions<FirefoxOptions> {
         List<String> newArgs = new ArrayList<>(existingArgs);
         newArgs.addAll(sourceArgs);
 
-        toAmend.put(key(), Collections.unmodifiableList(new ArrayList<>(newArgs)));
+        toAmend.put(key(), List.copyOf(newArgs));
       }
 
       @Override
