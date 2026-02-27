@@ -36,7 +36,7 @@ public class DistributorStatus {
   private final Set<NodeStatus> allNodes;
 
   public DistributorStatus(Collection<NodeStatus> allNodes) {
-    this.allNodes = unmodifiableSet(new HashSet<>(Require.nonNull("nodes", allNodes)));
+    this.allNodes = Set.copyOf(Require.nonNull("nodes", allNodes));
   }
 
   public boolean hasCapacity() {
