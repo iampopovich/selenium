@@ -85,13 +85,13 @@ public class SessionRequest {
     this.requestId = Require.nonNull("Request ID", requestId);
     this.enqueued = Require.nonNull("Enqueued time", enqueued);
     this.downstreamDialects =
-        unmodifiableSet(new HashSet<>(Require.nonNull("Downstream dialects", downstreamDialects)));
+      Set.copyOf(Require.nonNull("Downstream dialects", downstreamDialects));
     this.desiredCapabilities =
         unmodifiableSet(new LinkedHashSet<>(Require.nonNull("Capabilities", desiredCapabilities)));
     this.metadata =
         Collections.unmodifiableMap(new TreeMap<>(Require.nonNull("Metadata", metadata)));
     this.traceHeaders =
-        unmodifiableMap(new HashMap<>(Require.nonNull("Trace HTTP headers", traceHeaders)));
+      Map.copyOf(Require.nonNull("Trace HTTP headers", traceHeaders));
   }
 
   public RequestId getRequestId() {
