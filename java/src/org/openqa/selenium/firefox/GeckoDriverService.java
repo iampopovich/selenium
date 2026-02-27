@@ -93,8 +93,8 @@ public class GeckoDriverService extends FirefoxDriverService {
         executable,
         port,
         timeout,
-        unmodifiableList(new ArrayList<>(args)),
-        unmodifiableMap(new HashMap<>(environment)));
+      List.copyOf(args),
+      Map.copyOf(environment));
   }
 
   public String getDriverName() {
